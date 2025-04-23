@@ -17,12 +17,14 @@ b = [1, 2, 3]
 print(id(a))      # Unique ID (memory address) of a
 print(id(b))      # Unique ID of b, different from a
 print(type(a))    # Outputs: <class 'list'>
-
+```
 Output:
 
+```python
 139926795932424
 139926795932672
 <class 'list'>
+```
 
 Even though a and b have the same content, they are two distinct objects in memory.
 
@@ -38,22 +40,18 @@ set
 When you pass a mutable object to a function, any changes made inside the function affect the original object.
 
 Example:
-
-python
-Copier
-Modifier
+```python
 def add_element(lst):
     lst.append(4)
 
 my_list = [1, 2, 3]
 add_element(my_list)
 print(my_list)
+```
 Output:
-
-csharp
-Copier
-Modifier
+```python
 [1, 2, 3, 4]
+```
 The original list was modified in-place.
 
 🔒 Immutable Objects
@@ -69,20 +67,19 @@ Operations that “modify” immutable objects actually return new objects.
 
 Example:
 
-python
-Copier
-Modifier
+```python
+
 a = 5
 b = a
 a += 1
 print(a)
 print(b)
+```
 Output:
-
-Copier
-Modifier
+```python
 6
 5
+```
 Modifying a does not affect b, because a new int object was created for a + 1.
 
 📌 Why It Matters
@@ -92,12 +89,11 @@ Immutable objects are hashable and can be used as keys in dictionaries.
 
 Mutable objects are not hashable and cannot be used in sets or as dictionary keys.
 
-python
-Copier
-Modifier
+```python
 d = {}
 d[(1, 2)] = "Tuple as key"
 # d[[1, 2]] = "List as key"  # ❌ Raises TypeError: unhashable type: 'list'
+```
 Mutability also impacts memory efficiency, debugging, and code predictability.
 
 🧪 Function Arguments & Object Behavior
@@ -108,38 +104,33 @@ The reference to the object is passed.
 Whether the function can modify the object depends on mutability.
 
 🔁 Mutable example:
-python
-Copier
-Modifier
+```python
 def modify_list(lst):
     lst.append(10)
 
 my_list = [1, 2, 3]
 modify_list(my_list)
 print(my_list)
+```
 Output:
-
-csharp
-Copier
-Modifier
+```python
 [1, 2, 3, 10]
+```
 The list is modified inside the function.
 
 🔒 Immutable example:
-python
-Copier
-Modifier
+```python
 def modify_number(n):
     n += 5
 
 x = 10
 modify_number(x)
 print(x)
+```
 Output:
-
-Copier
-Modifier
+```python
 10
+```
 The number x is unchanged because integers are immutable. The n += 5 creates a new object, and the original x stays the same.
 
 ✅ Conclusion
